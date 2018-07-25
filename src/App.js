@@ -1,18 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      books: []
+    };
+  }
+
+  async getBooks() {
+    const response = await fetch("http://localhost:3000/books");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      return [];
+    }
+  }
+  async componentDidMount() {
+    const data = await this.getBooks();
+    this.setState({
+      books: data
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        {this.state.books.map(book => {
+          return (
+            <li key={book._id}>
+              {book.title}, by {book.author ? book.author.name : ""}
+            </li>
+          );
+        })}
       </div>
     );
   }
