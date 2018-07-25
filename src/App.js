@@ -10,6 +10,7 @@ class App extends Component {
   }
 
   async getBooks() {
+    console.log('hi');
     const apiHost = process.env.REACT_APP_API || "http://localhost:3000";
     const response = await fetch(apiHost + "/books");
     if (response.ok) {
