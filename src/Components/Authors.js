@@ -22,11 +22,14 @@ class Authors extends Component {
     );
   }
   async getAuthors() {
-    const response = await fetch(`${API_HOST}/authors`);
-    const data = response.ok ? await response.json() : [];
-    this.setState({
-      authors: data
-    });
+    const url = `${API_HOST}/authors`;
+    const response = await fetch(url);
+    if(response.ok) {
+      const data = await response.json()
+      this.setState({
+        authors: data
+      });
+    }
   }
 }
 

@@ -24,11 +24,14 @@ class Books extends Component {
     );
   }
   async getBooks() {
-    const response = await fetch(`${API_HOST}/books`);
-    const data = response.ok ? await response.json() : [];
-    this.setState({
-      books: data
-    });
+    const url = `${API_HOST}/books`;
+    const response = await fetch(url);
+    if(response.ok) {
+      const data = await response.json()
+      this.setState({
+        books: data
+      });
+    }
   }
 }
 
