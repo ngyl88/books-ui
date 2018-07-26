@@ -8,8 +8,8 @@ class Books extends Component {
       books: []
     };
   }
-  componentDidMount() {
-    this.getBooks();
+  async componentDidMount() {
+    await this.getBooks();
   }
   render() {
     return (

@@ -8,8 +8,8 @@ class Authors extends Component {
       authors: []
     };
   }
-  componentDidMount() {
-      this.getAuthors();
+  async componentDidMount() {
+      await this.getAuthors();
   }
   render() {
     return (

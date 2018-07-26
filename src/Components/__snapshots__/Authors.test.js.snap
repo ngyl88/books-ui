@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders title 1`] = `
+<div>
+  <h3>
+    Authors
+  </h3>
+</div>
+`;
+
+exports[`renders title and list of authors after component mounts 1`] = `
+<div>
+  <h3>
+    Authors
+  </h3>
+  <li>
+    author 1
+  </li>
+</div>
+`;

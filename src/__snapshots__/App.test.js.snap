@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App without crashing 1`] = `
+<div>
+  <Books />
+  <Authors />
+</div>
+`;
